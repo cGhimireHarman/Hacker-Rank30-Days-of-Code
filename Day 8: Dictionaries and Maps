@@ -1,0 +1,37 @@
+function processData(input) {
+    //Enter your code here
+    var myMap = new Map();
+    var message=input.split("\n");
+    var m=parseInt(message[0]);
+    //console.log(j)
+    //console.log(message[1])
+for(var i=1;i<=message[0];i++){
+    var arr=message[i].split(" ");
+    var name=arr[0];
+    var phonenumber=arr[1];
+    myMap.set(name,phonenumber);
+    
+}
+for(var j=m+1;j<message.length;j++){
+    if(myMap.has(message[j])){
+       console.log(message[j]+"="+myMap.get(message[j]));
+    }
+    else{
+        console.log("Not found");
+    }
+}
+//console.log(message.length);
+//console.log(myMap.get("sam"));
+
+} 
+
+process.stdin.resume();
+process.stdin.setEncoding("ascii");
+_input = "";
+process.stdin.on("data", function (input) {
+    _input += input;
+});
+
+process.stdin.on("end", function () {
+   processData(_input);
+});
